@@ -23,9 +23,22 @@ else:
 
 #Question 3
 print("\n\nQ3.\n")
-a = [int(x) for x in input("Enter ages(space seperated): ").strip().split()]
-print("The oldest is: %d and the youngest is %d"%(max(a),min(a)))
+a = int(input("Enter age of person 1 : "))
+b = int(input("Enter age of person 2 : "))
+c = int(input("Enter age of person 3 : "))
 
+if a<=b and a<=c:
+    print("%d is the smallest"%a)
+elif b<=c and b<=a:
+    print("%d is the smallest"%b)
+else:
+    print("%d is the smallest"%c)
+if a>=b and a>=c:
+    print("%d is the oldest"%a)
+elif b>=c and b>=a:
+    print("%d is the oldest"%b)
+else:
+    print("%d is the oldest"%c)
 
 
 
@@ -59,7 +72,6 @@ if total>1000 :
     print("Total amount is %d but you only have to pay %.2f"%(total,total*0.9))
 
 else:
-    print("Your total would be %d "
-          %(total))
+    print("Your total would be %d "%(total))
 
 print("Have a nice day :)")
