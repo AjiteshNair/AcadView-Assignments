@@ -4,21 +4,17 @@ import time
 #Question 1
 
 print("\n\nQ1.\n")
-# Define a function for the thread
-def print_msg( threadName):
-    time.sleep(5)
+def print_msg( threadName):         #takes thread name as a parameter
+    time.sleep(5)                   #lets the thread sleep for 5 seconds
     print ("%s displays 'hello world'" % ( threadName ))
 
-# Create two threads as follows
 try:
-   _thread.start_new_thread( print_msg, ("Thread-1",) )
+   _thread.start_new_thread( print_msg, ("Thread-1",) )# creates a thread Thread-1 and passes it to funtion print_msg
 
 except:
    print ("Error: unable to start thread")
 
-while 1:
-   pass
-
+time.sleep(7)   #sleeping for 7 seconds until tthe next thread executes6
 
 
 #=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
@@ -27,22 +23,18 @@ while 1:
 
 #Question 2
 print("\n\nQ2.\n")
-def print_time( threadName, delay):
+def count_10( threadName, delay):   #takes in thread name and delay
    count = 0
-   while count < 10:
-      time.sleep(delay)
-      count += 1
+   while count < 10:        #counts till 9
+      time.sleep(delay)     #delay of 1 sec in between
+      count += 1            #increments till 10
       print ("%d" % (count) )
-# Create two threads as follows
 try:
-   _thread.start_new_thread( print_time, ("Thread-1", 1 ) )
+   _thread.start_new_thread( count_10, ("Thread-1", 1 ) )# creates a thread Thread-1 and 1 which is passed to funtion count_10
 except:
    print ("Error: unable to start thread")
 
-while 1:
-   pass
-
-
+time.sleep(12)      # again putting on sleep until the next thread arrives
 
 
 
@@ -60,17 +52,16 @@ def print_time( threadName, delay):
    count = 0
    while count < 5:
       time.sleep(delay)
-      print ("%s : %d" % (threadName,list_a[count]) )
+      print ("%s : %d" % (threadName,list_a[count]) )       #displayes thraed name and the lists items
       count += 1
-# Create two threads as follows
+      
 try:
-   _thread.start_new_thread( print_time, ("The list items are", 2 ) )
+   _thread.start_new_thread( print_time, ("The list items are", 2 ) )   # passes the string name and the delay values
+   
 except:
    print ("Error: unable to start thread")
 
-while 1:
-   pass
-
+time.sleep(22)  #sleeping till this thread ends
 
 
 #=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
@@ -80,23 +71,21 @@ while 1:
 #Question 4
 print("\n\nQ4.\n")
 
-def fact( threadName, num):
+def fact( threadName, num):         #funtion taking thread name and num as parameters
    fact = 1
-   while num!=0:
+   while num!=0:                    #logic for facotrial
       time.sleep(1)
       fact *= num
       num-=1
-      print ("%s  %d" % (threadName,fact) )
+      print ("%s  %d" % (threadName,fact) )     #printing the calculated values hand to hand
 
       
 try:
-   _thread.start_new_thread( fact, ("Calculating...", 5 ) )
+   _thread.start_new_thread( fact, ("Calculating...", 5 ) )     #passing thraed name and number of which factoiral i to be calculated
    
 except:
    print ("Error: unable to start thread")
 
-while 1:
-   pass
 
 #=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 
