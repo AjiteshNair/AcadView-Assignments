@@ -3,7 +3,7 @@
 print("\n\nQ1.\n")
 
 
-
+#for indentation error , include the part having indentation error and catch as SyntaxError
 a = 3
 if a<4 :
     try:
