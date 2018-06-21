@@ -7,9 +7,9 @@ print("\n\nQ1.\n")
 a = 3
 if a<4 :
     try:
-        a = a/(a-3)
+        a = a/(a-3)     #divind by zero here , error
 
-    except ZeroDivisionError:
+    except ZeroDivisionError:                       #catches the error , executes lines below
         print("ERROR : ZeroDivisionError\nCannot divide my zero! value of a remains unchanged :",end=' ')
 
     else:
@@ -26,10 +26,10 @@ if a<4 :
 
 #Question 2
 print("\n\nQ2.\n")
-l=[1,2,3]
+l=[1,2,3]               # list indexes 0,1,2
 
 try:
-    print(l[3])
+    print(l[3])         #accessing li , 3
     
 except IndexError:
     print("ERROR: IndexError\nPlease do remember list has only 3 elements , 0-2 index")
@@ -81,13 +81,13 @@ print("\n\nQ5.\n")
 try:
     import kuchhbhi
 
-except ImportError:                             
+except ImportError:                             #handle errors of importing
     print("Matlab kuchh bhi import karoge?")     
 
 try:
     y = int(input("\nEnter number(or dont , for a exception): "))
     
-except ValueError:
+except ValueError:                                  #handles value related errors
     print("Oh well , someone failed bad ")
 
 else:
@@ -96,7 +96,7 @@ else:
 try:
     print(l[3]) #acessing previously made list of 3 elements
 
-except IndexError:
+except IndexError:                                  #accessing index out of bounds
     print("\nAgain , index out of bounds error :( ")
 
 #=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
