@@ -96,3 +96,21 @@ print("\n\nAn API is an interface for other programs to interact with your progr
 
 
 #=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+#Question 5
+print("\n\nQ5.\n")
+#no idea of this will work , didnt get how to extract a song
+eden_url="spotify:artist:s23mkadfkwnmosawindjabfaahvashkj"  #this the id used is of my account , code source:documentation.
+spotify=spotipy.Spotify()
+results=spotify.artist_albums(eden_url,album_type="album")
+albums=results['items']
+
+while results['next']:
+    results=spotify.next(results)
+    albums.extend(results['items'])
+    
+for album in  albums:
+    print((album['name']))
+
+
+#=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
