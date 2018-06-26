@@ -42,6 +42,21 @@ print(' '.join(regular))                            #joins it back after adding 
 print("\n\nQ4.\n")
 
 
+print('\n\n')
+
+tweet = "Good advice! RT @TheNextWeb: What I would do differently if I was learning to code today http://t.co/lbwej0pxOd cc: @garybernhardt #rstats"
+print(tweet)
+
+tweet = re.sub('RT|cc', '', tweet)
+tweet = re.sub('http\S+\s*', '', tweet)
+tweet = re.sub('@\S+', '', tweet)  
+tweet = re.sub('#\S+', '', tweet)
+tweet = re.sub('[%s]' % re.escape("""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""), '', tweet)  # remove punctuations
+tweet = re.sub('\s+', ' ', tweet)
+
+print("\n\n"+tweet)
+
+
 #=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 
 

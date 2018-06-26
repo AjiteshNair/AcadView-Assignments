@@ -3,9 +3,9 @@ import MySQLdb
 #Question 1
 print("\n\nQ1.\n")
 
-db = MySQLdb.connect("localhost","testuser","test123","TESTDB")
+db = MySQLdb.connect("localhost","testuser","test123","TESTDB")#opening database to work on
 
-cursor = db.cursor()
+cursor = db.cursor()        #preparing object for cursor method
 
 sql = """CREATE TABLE BOOKS(
          BOOK_ID INT PK,
@@ -13,7 +13,7 @@ sql = """CREATE TABLE BOOKS(
          LOCATION VARCHAR(30),
          GENRE VARCHAR(20))"""
 
-cursor.execute(sql)
+cursor.execute(sql)         #executing the sql command
 
 sql = """CREATE TABLE TITLES(
          TITLE VARCHAR(20),
@@ -49,7 +49,7 @@ sql = """CREATE TABLE AUTHOR(
 cursor.execute(sql)
 
 
-db.close()
+db.close()      #properly exiting the database
      
 
 #=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
@@ -58,11 +58,42 @@ db.close()
 #Question 2
 print("\n\nQ2.\n")
 
+db = MySQLdb.connect("localhost","testuser","test123","TESTDB")
+
+cursor = db.cursor()
+
+sql = """ INSERT INTO BOOKS VALUES(1,101,"UNITED KINGDOM","THRILLER")"""
+
+try:
+    cursor.execute(sql)     #if insertion fails to occur
+    db.commit()
+except:
+    db.rollback()       #if error occurs , rollback to safe point
+
+#Same way to enter values in other tables as well
+
+db.close()
+
 #=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 
 
 #Question 3
 print("\n\nQ3.\n")
+
+db = MySQLdb.connect("localhost","testuser","test123","TESTDB")
+
+cursor = db.cursor()
+
+sql = """UPDATE BOOKS SET LOCATION = "AMERICA"
+                                 WHERE BOOK_ID = 1"""
+
+try:
+    cursor.execute(sql)
+    db.commit()
+except:
+    db.rollback()
+
+db.close()
 
 #=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 
